@@ -13,6 +13,7 @@ const server = express();
 server.engine('mustache', mustache());
 server.set('views', './views');
 server.set('view engine', 'mustache');
+server.use(express.static('public'));
 // now we can access req.body from forms!
 server.use(bodyparser.urlencoded({ extended: false }));
 

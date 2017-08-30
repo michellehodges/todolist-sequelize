@@ -1,0 +1,42 @@
+/*font-family: 'Indie Flower', cursive;
+font-family: 'Arvo', serif;*/
+
+
+h1 {
+  font-family: 'Arvo', serif;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Arvo', serif;
+  text-decoration: underline;
+}
+
+label {
+    font-family: 'Arvo', serif;
+}
+
+li {
+  font-family: 'Indie Flower', cursive;
+  margin: 1em;
+  font-size: 1.5em;
+}
+
+.completed {
+  text-decoration: line-through;
+  font-size: 1.5em;
+}
+
+.new {
+  width: 40%;
+  margin: 1em; 
+}
+
+input, option {
+  font-family: 'Arvo', serif;
+}
+
+.incomplete-wrapper, .completed-wrapper {
+  border: 1px solid black;
+  padding: 1em;
+}
