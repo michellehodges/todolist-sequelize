@@ -1,0 +1,43 @@
+<!doctype html>
+
+<head>
+  <title>Super Cool Todolist</title>
+  <style type="text/css">
+    /*ADD STYLES HERE */
+  </style>
+</head>
+
+<body>
+  <form method="post" action="/">
+
+    <input type="text" id="add_todo" name="todo" placeholder="Add new todo...">
+    <input type="submit" name="add" value="Add">
+
+    <ul class="current-todos">
+      {{ #todoList }}
+        {{ ^complete }}
+          <li>
+            <form method="post" action="/todos/{{ id }}">
+              <input type="submit" name="mark-done" id="submit_id" value="Mark done here!">
+              {{todo}}
+            </form>
+          </li>
+          {{ /complete }}
+        {{ /todoList }}
+    </ul>
+  </form>
+
+  <h1>Completed Todos</h1>
+    <ul class="completed-todos">
+      {{ #todoList }}
+        {{ #complete }}
+          <li>
+            {{todo}}
+          </li>
+        {{ /complete }}
+      {{ /todoList }}
+    </ul>
+
+</body>
+
+</html>
