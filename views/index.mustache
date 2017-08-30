@@ -1,42 +1,67 @@
 <!doctype html>
+<!--
+You should be able to add new todos and mark todos as complete.
+use Sequelize to store your todos
+add the ability to edit and delete individual todos.
+Add a button to delete all completed todos.
+Sort your todos by their creation date, newest on top. -->
 
+<html>
 <head>
   <title>Super Cool Todolist</title>
-  <style type="text/css">
-    /*ADD STYLES HERE */
-  </style>
 </head>
 
 <body>
-  <form method="post" action="/">
+  <h1>Todolist</h1>
 
-    <input type="text" id="add_todo" name="todo" placeholder="Add new todo...">
-    <input type="submit" name="add" value="Add">
-
-    <ul class="current-todos">
-      {{ #todoList }}
-        {{ ^complete }}
-          <li>
-            <form method="post" action="/todos/{{ id }}">
-              <input type="submit" name="mark-done" id="submit_id" value="Mark done here!">
-              {{todo}}
-            </form>
-          </li>
-          {{ /complete }}
-        {{ /todoList }}
-    </ul>
+  <form method="post" action="/new">
+    <input type="text" name="new" placeholder="Enter a new todo here..."></input>
+    <input type="submit" name="submit" value="Add todo">
   </form>
 
-  <h1>Completed Todos</h1>
-    <ul class="completed-todos">
-      {{ #todoList }}
-        {{ #complete }}
-          <li>
-            {{todo}}
-          </li>
-        {{ /complete }}
-      {{ /todoList }}
-    </ul>
+  <form method="post" action="/sort">
+    <label for="sort">Sort todos by:</label>
+    <select name="sort" id="sort">
+      <option value="ascending">Creation date: Ascending</option>
+      <option value="descending">Creation date: Descending</option>
+    </select>
+    <input type="submit" value="Sort" class="sort-btn">
+  </form>
+
+  <h3>Incomplete todos</h3>
+  <ul>
+    {{ #todos }}
+      {{ ^completed }}
+    <li>
+      <p>{{ title }}</p>
+      <form method="post" action="/completed/{{ id }}">
+        <input type="submit" name="completed" value="Mark as complete">
+      </form>
+      <form method="post" action="/edit/{{ id }}">
+        <input type="submit" name="edit" value="Edit todo">
+      </form>
+      <form method="post" action="/delete/{{ id }}">
+        <input type="submit" name="delete" value="Delete todo">
+      </form>
+    </li>
+      {{ /completed }}
+    {{ /todos }}
+  </ul>
+
+  <h3>Completed todos</h3>
+  <ul>
+    {{ #todos }}
+    {{ #completed }}
+    <li>
+      <p>{{ title }}</p>
+    </li>
+      {{ /completed }}
+    {{ /todos }}
+  </ul>
+
+  <form method="post" action="/deleteall">
+    <input type="submit" name="clear" value="Clear all completed todos">
+  </form>
 
 </body>
 
