@@ -38,6 +38,7 @@ Sort your todos by their creation date, newest on top. -->
         <input type="submit" name="completed" value="Mark as complete">
       </form>
       <form method="post" action="/edit/{{ id }}">
+        <input type="text" name="editbox" placeholder="Edit this todo...">
         <input type="submit" name="edit" value="Edit todo">
       </form>
       <form method="post" action="/delete/{{ id }}">
