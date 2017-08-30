@@ -28,7 +28,7 @@
       {{ #todos }}
         {{ ^completed }}
       <li>
-        <p>{{ title }}</p>
+        <p class="title-incomplete">{{ title }}</p>
         <form method="post" action="/completed/{{ id }}">
           <input type="submit" name="completed" value="Mark as complete">
         </form>

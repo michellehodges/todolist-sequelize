@@ -29,7 +29,7 @@ li {
 
 .new {
   width: 40%;
-  margin: 1em; 
+  margin: 2em;
 }
 
 input, option {
@@ -39,4 +39,20 @@ input, option {
 .incomplete-wrapper, .completed-wrapper {
   border: 1px solid black;
   padding: 1em;
+  margin: 1em;
+}
+
+.incomplete-wrapper {
+  background-color: ivory;
+}
+
+.completed-wrapper {
+  background-color: aliceblue;
+}
+body {
+  background-color: bisque;
+}
+
+.title-incomplete {
+  font-weight: bolder;
 }
